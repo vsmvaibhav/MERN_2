@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        .submit-button {
+            background-color: red;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #f31111;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        
+        <form id="myForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <div class="error-message" id="name-error">Name is required</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+                <div class="error-message" id="email-error">Email is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+                <div class="error-message" id="password-error">Password is required.</div>
+            </div>
+            <div></div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies:</label>
+                <select name="hobbies">
+                    <option value disabled selected>Select hobby</option>
+                    <option>singing</option>
+                    <option>playing</option>
+                    <option>drawing</option>
+                </select>
+                <br/>
+                <br/>
+                <button class="submit-button">Submit</button><br/>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+  
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            let valid = true;
+
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+            if (name.value.trim() === '') {
+                nameError.style.display = 'block';
+                valid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email.value)) {
+                emailError.style.display = 'block';
+                valid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('password-error');
+            if (password.value.trim() === '') {
+                passwordError.style.display = 'block';
+                valid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            if (!valid) {
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>

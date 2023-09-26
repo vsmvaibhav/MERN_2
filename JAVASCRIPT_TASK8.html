@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .checkbox-label {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #secondlastcheckbox,
+        #link {
+            text-align: center;
+        }
+
+        #link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        #link a:hover {
+            text-decoration: underline;
+        }
+
+        span.error {
+            color: red;
+        }
+        #reg {
+        display: block;
+        width: 150px; 
+        margin: 0 auto; 
+        background-color: #FF0000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    #reg:hover {
+        background-color: #CC0000; 
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <table>
+
+                <tr>
+                    <td><label for "first_name"><b>First name </b></label></td>
+
+                    <td><input style="width: 90%;" type="text" id="first_name" name="first_name" /></td>
+                    <td><span id="first_name_error" style="color: red;"></span></td>
+
+                </tr>
+                <tr>
+                    <td><label for "last_name"><b>Last name </b></label></td>
+                    <td><input style="width: 90%;" type="text" id="last_name" name="last_name" /></td>
+                    <td><span id="last_name_error" style="color: red;"></span></td>
+                </tr>
+                <tr>
+                    <td><label for "email"><b>Email </b></label></td>
+                    <td><input style="width: 90%;" type="text" id="email" name="email" /></td>
+                    <td><span id="email_error" style="color: red;"></span></td>
+                </tr>
+        
+                <tr>
+                    <td><label for "password"><b>Password </b></label></td>
+                    <td><input style="width: 90%;" type="password" id="password" name="password" /></td>
+                    <td><span id="password_error" style="color: red;"></span></td>
+                </tr>
+                <tr>
+                    <td><label for "re_password"><b>Re Password </b></label></td>
+                    <td><input style="width: 90%;" type="password" id="re_password" name="re_password" /></td>
+                    <td><span id="re_password_error" style="color: red;"></span></td>
+                </tr>
+        
+                <tr>
+                    <td><label><b> Gender </b></label></td>
+                    <td>
+                        <input type="radio" name="Gender"  /> Male
+                        <br />
+                        <input type="radio" name="Gender" /> Female
+                    </td>
+                </tr>
+        
+        
+        
+                <tr>
+                    <td><label for "age"><b>Age  </b></label></td>
+                    <td><input style="width: 90%;" type="number" id="Age" name="age" /></td>
+                    <td><span id="age_error" style="color: red;"></span></td>
+                </tr>
+        
+                <tr>
+                    <td><label for "phone_number"><b>Phone Number  </b></label></td>
+                    <td><input style="width: 90%;" type="number" id="phone_number" name="phone number" /></td>
+                    <td><span id="phone_number_error" style="color: red;"></span></td>
+                </tr>
+        
+        
+                <tr class="address">
+                    <td><label for "address"><b>Address </b></label></td>
+                    <td><input style="width: 90%; height: 60px;" type="text" id="Address" name="Address" /></td>
+                    <td><span id="address_error" style="color: red;"></span></td>
+                </tr>
+        
+                <tr>
+                    <td><label for "state"><b>State </b></label></td>
+                    <td><input style="width: 90%;" type="text" id="State" name="State" /></td>
+                    <td><span id="state_error" style="color: red;"></span></td>
+                </tr>
+        
+        
+                <tr>
+                    <td><label for "country"><b>Country </b></label></td>
+                    <td><select name="country">
+                            <option>India</option>
+                            <option>US</option>
+                            <option>Canada</option>
+                            <option>Japan</option>
+                        </select></td>
+                </tr>
+        
+                <tr>
+                    <td><label for "lang"><b>Languages Known </b></label></td>
+                    <td>
+                        <input type="checkbox" /> English
+                        <input type="checkbox" /> Kannada
+                        <input type="checkbox" /> Hindi
+                        <input type="checkbox" /> Telugu
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td id="secondlastcheckbox" colspan="2">
+                        <input type="checkbox" checked /> Hereby I declare the given details are true 
+                    </td>
+                </tr>
+        
+
+
+        </table>
+            <br />
+            <input id="reg" type="submit" value="Register" />
+        </form>
+        <p id="link">Log in to <a href="https://drive.google.com/drive/folders/1jXkqN1xY_STHuOB1mdJZEboLTiq1RXch">Ethnus</a> website</p>
+    </div>
+
+    <script>
+        function validateForm() {
+
+    var firstName = document.getElementById("first_name").value;
+    var lastName = document.getElementById("last_name").value;
+    var mail = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
+    var repass = document.getElementById("re_password").value;
+    var Age_n = document.getElementById("Age").value;
+    var phonenum = document.getElementById("phone_number").value;
+    var Addr = document.getElementById("Address").value;
+    var State_n = document.getElementById("State").value;
+
+
+    if (firstName.length < 3) {
+        document.getElementById("first_name_error").textContent = "POOR";
+    } else {
+        document.getElementById("first_name_error").textContent = "STRONG";
+    }
+
+    if (lastName.length < 3) {
+        document.getElementById("last_name_error").textContent = "POOR";
+    } else {
+        document.getElementById("last_name_error").textContent = "STRONG";
+    }
+
+    if (mail.length < 5) {
+        document.getElementById("email_error").textContent = "POOR";
+    } else {
+        document.getElementById("email_error").textContent = "STRONG";
+    }
+
+    if (pass.length < 3) {
+        document.getElementById("password_error").textContent = "POOR";
+    } else {
+        document.getElementById("password_error").textContent = "STRONG";
+    }
+
+    if (repass !== pass && repass.length < 3) {
+        document.getElementById("re_password_error").textContent = "POOR OR MISMATCH";
+    } else {
+        document.getElementById("re_password_error").textContent = "STRONG";
+    }
+
+    if (Age_n.length < 3) {
+        document.getElementById("age_error").textContent = "POOR";
+    } else {
+        document.getElementById("age_error").textContent = "STRONG";
+    }
+
+    if (phonenum.length < 9) {
+        document.getElementById("phone_number_error").textContent = "POOR";
+    } else {
+        document.getElementById("phone_number_error").textContent = "STRONG";
+    }
+
+    if (Addr.length < 5) {
+        document.getElementById("address_error").textContent = "POOR";
+    } else {
+        document.getElementById("address_error").textContent = "STRONG";
+    }
+
+    if (State_n.length < 3) {
+        document.getElementById("state_error").textContent = "POOR";
+    } else {
+        document.getElementById("state_error").textContent = "STRONG";
+    }
+
+
+
+    return false; 
+}
+
+    </script>
+</body>
+
+</html>

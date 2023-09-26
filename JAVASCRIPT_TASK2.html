@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Task 2</title>
+</head>
+<body>
+    <h1>Sort String in Ascending Order</h1>
+    
+    <label for="inputString">Enter a String:</label>
+    <input type="text" id="inputString">
+    <button onclick="sortAndDisplay()">Sort</button>
+
+    <p>Sorted String: <span id="result"></span></p>
+
+    <script>
+        function sortStringAscending(inputString) {
+            const charArray = inputString.split('');
+            charArray.sort();
+            return charArray.join('');
+        }
+
+        function sortAndDisplay() {
+            const inputString = document.getElementById('inputString').value;
+            const sortedString = sortStringAscending(inputString);
+            document.getElementById('result').textContent = sortedString;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <title>Task 1</title>
+    </head>
+    <body>
+        <h1>Reverse a Number</h1>
+
+        <label for="numberInput">Enter a Number:</label>
+        <input type="number" id="numberInput">
+        <button onclick="reverseAndDisplay()">Reverse</button>
+
+        <p>Reversed Number: <span id="result"></span></p>
+
+        <script>
+        function reverseNumber(number) {
+
+            const numberStr = number.toString();
+
+            const reversedStr = numberStr.split('').reverse().join('');
+
+            const reversedNumber = parseFloat(reversedStr);
+
+
+            if (number < 0) {
+                return -reversedNumber;
+            }
+
+            return reversedNumber;
+        }
+        function reverseAndDisplay() {
+            const numberInput = document.getElementById('numberInput').value;
+            const reversedNumber = reverseNumber(numberInput);
+            document.getElementById('result').textContent = reversedNumber;
+        }
+    </script>
+    </body>
+</html>
